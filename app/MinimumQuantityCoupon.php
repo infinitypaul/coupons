@@ -6,6 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class MinimumQuantityCoupon extends Model
 {
+    /**
+     * @param $cart
+     *
+     * @return bool|float|int|mixed
+     *
+     * get discount for minimum quantity coupon
+     */
     public function discount($cart){
         if($cart->totalQuantity() < $this->quantity || $cart->grossTotal() < $this->amount){
             return false;

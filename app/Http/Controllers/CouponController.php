@@ -9,6 +9,13 @@ use Illuminate\Http\Request;
 
 class CouponController extends Controller
 {
+    /**
+     * @param \Illuminate\Http\Request $request
+     *
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\JsonResponse|\Illuminate\Http\Response
+     *
+     * Apply Coupon To Cart and Generate Discount
+     */
     public function applyCoupon(Request $request){
         $coupon = Coupon::findByCode($request->couponCode);
         if(!$coupon){

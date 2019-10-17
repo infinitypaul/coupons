@@ -17,6 +17,12 @@ class Cart extends Model
         return $this->belongsTo(Product::class);
     }
 
+    /**
+     * @param $query
+     * @param $id
+     *
+     * @return mixed
+     */
     public function scopeByProductId($query, $id){
         return $query->where('product_id', $id);
     }
@@ -25,6 +31,11 @@ class Cart extends Model
         return $this->sum('quantity');
     }
 
+    /**
+     * @return mixed
+     *
+     * Calculate The Total Item in Cart
+     */
     public function grossTotal(){
         return $this->query()
             ->select(DB::raw('SUM(carts.quantity * products.price) as product_sum'))
