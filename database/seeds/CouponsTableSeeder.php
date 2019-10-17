@@ -1,7 +1,7 @@
 <?php
 
 use App\Coupon;
-use App\Rule;
+use App\MinimumQuantityCoupon;
 use Illuminate\Database\Seeder;
 
 class CouponsTableSeeder extends Seeder
@@ -15,23 +15,63 @@ class CouponsTableSeeder extends Seeder
     {
         Coupon::create([
             'code' => 'FIXED10',
-            'type' => 'fixed',
-            'value' => 10,
-            'rule_id' => Rule::create([
-                'name' => 'Testing1',
-                'price' => 10.00,
-                'items' => 1
-            ])->id
+            'coupon_type' => 'App\MinimumQuantityCoupon',
+            'coupon_id' => MinimumQuantityCoupon::create([
+                'value' => 10,
+                'quantity' => 1,
+                'amount' => 50
+            ])->id,
+
         ]);
+
         Coupon::create([
             'code' => 'PERCENT10',
-            'type' => 'percent',
-            'value' => 10,
-            'rule_id' => Rule::create([
-                'name' => 'Testing2',
-                'price' => 100.00,
-                'items' => 2
-            ])->id
+            'coupon_type' => 'App\MinimumQuantityCoupon',
+            'coupon_id' => MinimumQuantityCoupon::create([
+                'percent_off' => 10,
+                'quantity' => 2,
+                'amount' => 100
+            ])->id,
+
         ]);
+
+        Coupon::create([
+            'code' => 'MIXED10',
+            'coupon_type' => 'App\MinimumQuantityCoupon',
+            'coupon_id' => MinimumQuantityCoupon::create([
+                'percent_off' => 10,
+                'value' => 10,
+                'quantity' => 3,
+                'amount' => 200
+            ])->id,
+        ]);
+
+        Coupon::create([
+            'code' => 'MIXED10',
+            'coupon_type' => 'App\MinimumQuantityCoupon',
+            'coupon_id' => MinimumQuantityCoupon::create([
+                'percent_off' => 10,
+                'value' => 10,
+                'quantity' => 0,
+                'amount' => 1000
+            ])->id,
+        ]);
+
+        Coupon::create([
+            'code' => 'ABCDE',
+            'coupon_type' => 'App\FixedValueCoupon',
+            'coupon_id' => MinimumQuantityCoupon::create([
+                'value' => 10
+            ])->id,
+        ]);
+
+        Coupon::create([
+            'code' => 'ABC',
+            'coupon_type' => 'App\PercentOffCoupon',
+            'coupon_id' => MinimumQuantityCoupon::create([
+                'percent_off' => 20
+            ])->id,
+        ]);
+
     }
 }

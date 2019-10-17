@@ -15,9 +15,13 @@ const getters = {
 const actions = {
     applyCoupon({commit, dispatch}, couponCode) {
         api.applyCoupon(couponCode).then((response)=>{
-            commit('clearCoupon');
-            commit('setCoupon', response.data);
-            dispatch('flashMessage', 'Coupon Applied Successfully');
+            if(response.data.value){
+                commit('clearCoupon');
+                commit('setCoupon', response.data);
+                dispatch('flashMessage', 'Coupon Applied Successfully');
+            } else{
+                dispatch('flashMessage', 'Error Adding Coupon');
+            }
         }).catch(()=>{
             dispatch('flashMessage', 'Error Adding Coupon');
         })

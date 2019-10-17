@@ -23,7 +23,6 @@ const getters = {
 const actions = {
     getAllCarts({commit}) {
         api.getAllCart().then((response)=>{
-            console.log(response);
             commit('setCarts', response.data)
         })
     },

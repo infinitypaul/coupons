@@ -52362,7 +52362,6 @@ var actions = {
   getAllCarts: function getAllCarts(_ref) {
     var commit = _ref.commit;
     _api_all__WEBPACK_IMPORTED_MODULE_0__["default"].getAllCart().then(function (response) {
-      console.log(response);
       commit('setCarts', response.data);
     });
   },
@@ -52477,9 +52476,13 @@ var actions = {
     var commit = _ref.commit,
         dispatch = _ref.dispatch;
     _api_all__WEBPACK_IMPORTED_MODULE_0__["default"].applyCoupon(couponCode).then(function (response) {
-      commit('clearCoupon');
-      commit('setCoupon', response.data);
-      dispatch('flashMessage', 'Coupon Applied Successfully');
+      if (response.data.value) {
+        commit('clearCoupon');
+        commit('setCoupon', response.data);
+        dispatch('flashMessage', 'Coupon Applied Successfully');
+      } else {
+        dispatch('flashMessage', 'Error Adding Coupon');
+      }
     })["catch"](function () {
       dispatch('flashMessage', 'Error Adding Coupon');
     });

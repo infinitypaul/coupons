@@ -23,6 +23,8 @@ class MinimumQuantityCoupon extends Model
             return $this->value;
         }
 
+        return false;
+
     }
 
     protected function percentOff($cart){

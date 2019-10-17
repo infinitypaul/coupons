@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class PercentOffCoupon extends Model
 {
     public function discount($cart){
-        return $cart->grossTotal() * ($this->percent_off / 100);
+
+        $amount = $cart->grossTotal() * ($this->percent_off / 100);
+        if($cart->grossTotal() < $amount){
+            return false;
+        }
+        return $amount;
     }
 }
