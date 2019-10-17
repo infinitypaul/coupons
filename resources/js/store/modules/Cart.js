@@ -28,10 +28,14 @@ const actions = {
         })
     },
     addProductToCart({commit, dispatch}, { product, quantity }){
-        commit('clearCoupon');
-        commit('appendToCart', { product, quantity });
-        api.addProductToCart({product, quantity});
-        dispatch('flashMessage', 'Item added to cart')
+        api.addProductToCart({product, quantity}).then(()=>{
+            commit('clearCoupon');
+            commit('appendToCart', { product, quantity });
+            dispatch('flashMessage', 'Item added to cart')
+        }).catch(()=>{
+            dispatch('flashMessage', 'Error, Item Not Added To Cart')
+        });
+
     },
     removeProductFromCart({ commit }, productId) {
         commit('clearCoupon');

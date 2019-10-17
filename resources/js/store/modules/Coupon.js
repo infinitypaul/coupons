@@ -14,10 +14,12 @@ const getters = {
 
 const actions = {
     applyCoupon({commit, dispatch}, couponCode) {
-        commit('clearCoupon');
         api.applyCoupon(couponCode).then((response)=>{
+            commit('clearCoupon');
             commit('setCoupon', response.data);
             dispatch('flashMessage', 'Coupon Applied Successfully');
+        }).catch(()=>{
+            dispatch('flashMessage', 'Error Adding Coupon');
         })
     },
     removeCoupon({commit, dispatch}){

@@ -2,16 +2,23 @@
 
 namespace App;
 
+use App\Traits\OrderableTrait;
 use DB;
 use Illuminate\Database\Eloquent\Model;
 
 class Cart extends Model
 {
+    use OrderableTrait;
+
     protected $guarded = ['id'];
 
     public function product()
     {
         return $this->belongsTo(Product::class);
+    }
+
+    public function scopeByProductId($query, $id){
+        return $query->where('product_id', $id);
     }
 
     public function totalQuantity(){

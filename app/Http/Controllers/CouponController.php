@@ -12,7 +12,7 @@ class CouponController extends Controller
     public function applyCoupon(Request $request){
         $coupon = Coupon::findByCode($request->couponCode);
         if(!$coupon){
-            return false;
+            return response(null, 412);
         }
         $cart = New Cart();
         return response()->json([

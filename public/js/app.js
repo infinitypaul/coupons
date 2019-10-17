@@ -52371,16 +52371,19 @@ var actions = {
         dispatch = _ref2.dispatch;
     var product = _ref3.product,
         quantity = _ref3.quantity;
-    commit('clearCoupon');
-    commit('appendToCart', {
-      product: product,
-      quantity: quantity
-    });
     _api_all__WEBPACK_IMPORTED_MODULE_0__["default"].addProductToCart({
       product: product,
       quantity: quantity
+    }).then(function () {
+      commit('clearCoupon');
+      commit('appendToCart', {
+        product: product,
+        quantity: quantity
+      });
+      dispatch('flashMessage', 'Item added to cart');
+    })["catch"](function () {
+      dispatch('flashMessage', 'Error, Item Not Added To Cart');
     });
-    dispatch('flashMessage', 'Item added to cart');
   },
   removeProductFromCart: function removeProductFromCart(_ref4, productId) {
     var commit = _ref4.commit;
@@ -52473,10 +52476,12 @@ var actions = {
   applyCoupon: function applyCoupon(_ref, couponCode) {
     var commit = _ref.commit,
         dispatch = _ref.dispatch;
-    commit('clearCoupon');
     _api_all__WEBPACK_IMPORTED_MODULE_0__["default"].applyCoupon(couponCode).then(function (response) {
+      commit('clearCoupon');
       commit('setCoupon', response.data);
       dispatch('flashMessage', 'Coupon Applied Successfully');
+    })["catch"](function () {
+      dispatch('flashMessage', 'Error Adding Coupon');
     });
   },
   removeCoupon: function removeCoupon(_ref2) {
