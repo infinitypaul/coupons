@@ -20,7 +20,7 @@ const actions = {
                 commit('setCoupon', response.data);
                 dispatch('flashMessage', 'Coupon Applied Successfully');
             } else{
-                dispatch('flashMessage', 'Error Adding Coupon');
+                dispatch('flashMessage', 'Error Adding Coupon, ');
             }
         }).catch(()=>{
             dispatch('flashMessage', 'Error Adding Coupon');
