@@ -17,7 +17,7 @@ class CreateMinimumQuantityCouponsTable extends Migration
             $table->bigIncrements('id');
             $table->integer('percent_off')->nullable();
             $table->integer('value')->nullable();
-            $table->integer('quantity');
+            $table->integer('quantity')->default(0);
             $table->float('amount');
             $table->timestamps();
         });

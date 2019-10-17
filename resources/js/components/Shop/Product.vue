@@ -2,7 +2,7 @@
     <figure class="figure">
         <img :src="product.image" :alt="product.title" class="figure-img img-fluid rounded" >
         <figcaption class="figure-caption ">
-            <a href="#">{{ product.title }}</a> £{{ product.price }}
+            <a href="#">{{ product.title }}</a> ${{ product.price }}
             <p>{{ product.description }}</p>
             <button class="btn btn-primary" role="button" @click.prevent="addToCart">Add to cart</button>
         </figcaption>

@@ -22,6 +22,19 @@
 <body>
 <div id="app">
     <shop-component></shop-component>
+    <!-- Footer -->
+    <footer class="page-footer font-small blue pt-4">
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">© Infinitypaul:
+            <a href="https://github.com/infinitypaul/coupons"> Github Source Code</a>
+            <a href="https://medium.com/@infinitypail"> My Blog</a>
+        </div>
+        <!-- Copyright -->
+
+    </footer>
+    <!-- Footer -->
 </div>
+
 </body>
 </html>

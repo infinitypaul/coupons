@@ -4,7 +4,7 @@
             <ul class="list-group" v-if="cart.length">
                 <li class="list-group-item" v-for="item in cart">
                     <a href="#" class="badge" @click.prevent="removeProductFromCart(item.product.id)">Remove</a>
-                    {{ item.quantity }} x {{ item.product.title }} @ £{{ item.product.price }}
+                    {{ item.quantity }} x {{ item.product.title }} @ ${{ item.product.price }}
                 </li>
 
                 <li class="list-group-item" v-if="getCoupon.value">
@@ -20,11 +20,11 @@
             <p v-else>No items in cart</p>
         </div>
         <div class="py-4" v-if="cart.length && !getCoupon.value">
-            <label for="coupon">Coupon</label>
+            <label for="coupon">Sample Coupon On Github</label>
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username with two button addons" aria-describedby="button-addon4" v-model="coupon">
+                <input type="text" class="form-control" placeholder="Coupon Code" aria-label="Coupon Code" aria-describedby="button-addon4" v-model="coupon" id="coupon">
                 <div class="input-group-append" id="button-addon4">
-                    <button class="btn btn-outline-secondary" @click.prevent="checkCoupon" type="button">Button</button>
+                    <button class="btn btn-primary" @click.prevent="checkCoupon" type="button">Apply</button>
                 </div>
             </div>
         </div>

@@ -1,7 +1,7 @@
 <template>
     <header class="header">
         <div class="container">
-            {{ cartItemCount }} items in cart (£{{ cartTotal }})
+            {{ cartItemCount }} items in cart (${{ cartTotal }})
         </div>
     </header>
 </template>

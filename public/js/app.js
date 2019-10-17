@@ -6578,7 +6578,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.message {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    font-size: 1.2em;\n    position: fixed;\n    top: 0; left: 0;\n    background-color: tomato;\n    color: #fff;\n    height: 60px;\n    width: 100%;\n}\n", ""]);
+exports.push([module.i, "\n.message {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    font-size: 1.2em;\n    position: fixed;\n    top: 0; right: 0;\n    background-color: tomato;\n    color: #fff;\n    height: 60px;\n    width: 25%;\n}\n", ""]);
 
 // exports
 
@@ -38191,7 +38191,7 @@ var render = function() {
       _vm._v(
         "\n        " +
           _vm._s(_vm.cartItemCount) +
-          " items in cart (£" +
+          " items in cart ($" +
           _vm._s(_vm.cartTotal) +
           ")\n    "
       )
@@ -38248,7 +38248,7 @@ var render = function() {
                       _vm._s(item.quantity) +
                       " x " +
                       _vm._s(item.product.title) +
-                      " @ £" +
+                      " @ $" +
                       _vm._s(item.product.price) +
                       "\n            "
                   )
@@ -38307,7 +38307,9 @@ var render = function() {
     _vm._v(" "),
     _vm.cart.length && !_vm.getCoupon.value
       ? _c("div", { staticClass: "py-4" }, [
-          _c("label", { attrs: { for: "coupon" } }, [_vm._v("Coupon")]),
+          _c("label", { attrs: { for: "coupon" } }, [
+            _vm._v("Sample Coupon On Github")
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "input-group" }, [
             _c("input", {
@@ -38322,9 +38324,10 @@ var render = function() {
               staticClass: "form-control",
               attrs: {
                 type: "text",
-                placeholder: "Recipient's username",
-                "aria-label": "Recipient's username with two button addons",
-                "aria-describedby": "button-addon4"
+                placeholder: "Coupon Code",
+                "aria-label": "Coupon Code",
+                "aria-describedby": "button-addon4",
+                id: "coupon"
               },
               domProps: { value: _vm.coupon },
               on: {
@@ -38347,7 +38350,7 @@ var render = function() {
                 _c(
                   "button",
                   {
-                    staticClass: "btn btn-outline-secondary",
+                    staticClass: "btn btn-primary",
                     attrs: { type: "button" },
                     on: {
                       click: function($event) {
@@ -38356,7 +38359,7 @@ var render = function() {
                       }
                     }
                   },
-                  [_vm._v("Button")]
+                  [_vm._v("Apply")]
                 )
               ]
             )
@@ -38395,7 +38398,7 @@ var render = function() {
     _vm._v(" "),
     _c("figcaption", { staticClass: "figure-caption " }, [
       _c("a", { attrs: { href: "#" } }, [_vm._v(_vm._s(_vm.product.title))]),
-      _vm._v(" £" + _vm._s(_vm.product.price) + "\n        "),
+      _vm._v(" $" + _vm._s(_vm.product.price) + "\n        "),
       _c("p", [_vm._v(_vm._s(_vm.product.description))]),
       _vm._v(" "),
       _c(

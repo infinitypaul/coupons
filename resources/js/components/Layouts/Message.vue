@@ -23,10 +23,10 @@
         justify-content: center;
         font-size: 1.2em;
         position: fixed;
-        top: 0; left: 0;
+        top: 0; right: 0;
         background-color: tomato;
         color: #fff;
         height: 60px;
-        width: 100%;
+        width: 25%;
     }
 </style>

@@ -17,7 +17,7 @@ class CouponsTableSeeder extends Seeder
             'code' => 'FIXED10',
             'coupon_type' => 'App\MinimumQuantityCoupon',
             'coupon_id' => MinimumQuantityCoupon::create([
-                'value' => 10,
+                'value' => 100,
                 'quantity' => 1,
                 'amount' => 50
             ])->id,
@@ -47,12 +47,11 @@ class CouponsTableSeeder extends Seeder
         ]);
 
         Coupon::create([
-            'code' => 'MIXED10',
+            'code' => 'REJECTED100',
             'coupon_type' => 'App\MinimumQuantityCoupon',
             'coupon_id' => MinimumQuantityCoupon::create([
                 'percent_off' => 10,
                 'value' => 10,
-                'quantity' => 0,
                 'amount' => 1000
             ])->id,
         ]);
@@ -60,7 +59,7 @@ class CouponsTableSeeder extends Seeder
         Coupon::create([
             'code' => 'ABCDE',
             'coupon_type' => 'App\FixedValueCoupon',
-            'coupon_id' => MinimumQuantityCoupon::create([
+            'coupon_id' => \App\FixedValueCoupon::create([
                 'value' => 10
             ])->id,
         ]);
@@ -68,7 +67,7 @@ class CouponsTableSeeder extends Seeder
         Coupon::create([
             'code' => 'ABC',
             'coupon_type' => 'App\PercentOffCoupon',
-            'coupon_id' => MinimumQuantityCoupon::create([
+            'coupon_id' => \App\PercentOffCoupon::create([
                 'percent_off' => 20
             ])->id,
         ]);
