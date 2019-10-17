@@ -1,6 +1,6 @@
 
 <p align="center">A flexible Coupon System with various rules and discount .</p>
-<p align="center"><a href="https://instagram.com/infinitypaul">Creator</a> | <a href="">Getting Started</a></p>
+<p align="center"><a href="https://medium.com/@infinitypaul">Creator</a> | <a href="https://coupon-infinitypaul.herokuapp.com/">Demo</a></p>
 
 <p>&nbsp;</p>
 
